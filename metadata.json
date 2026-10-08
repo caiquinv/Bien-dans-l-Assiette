@@ -1,0 +1,6 @@
+{
+  "name": "Assiette Vitalité - 280 Recettes Anti-Inflammatoires",
+  "description": "Page de vente officielle du guide numérique 280 Recettes Anti-Inflammatoires & Vitalité. Recettes simples, gourmandes et saines adaptées au quotidien.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
