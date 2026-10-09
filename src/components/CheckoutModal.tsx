@@ -76,9 +76,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
                 />
                 <div className="flex-1 text-xs">
                   <h4 className="font-bold text-slate-900 text-sm">
-                    {SALES_CONFIG.product.name}
+                    {SALES_CONFIG.product.fullName}
                   </h4>
-                  <p className="text-slate-500 mt-0.5">Pack Numérique HD + 4 Bonus Inclus</p>
+                  <p className="text-slate-500 mt-0.5">Guide Numérique HD + 4 Bonus Inclus</p>
                   <div className="flex items-center gap-2 mt-1.5 font-mono">
                     <span className="text-base font-extrabold text-[#385429]">
                       {SALES_CONFIG.product.priceCurrentFormatted} {SALES_CONFIG.product.currencySymbol}

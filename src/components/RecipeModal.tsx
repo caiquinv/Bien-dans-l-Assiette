@@ -125,7 +125,7 @@ export const RecipeModal: React.FC<RecipeModalProps> = ({ recipe, onClose, onSel
         {/* Modal Footer with Offer Action */}
         <div className="bg-[#FAFBF7] border-t border-slate-200 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="text-xs text-slate-500 text-center sm:text-left">
-            Cette fiche est un aperçu extrait des <strong>{SALES_CONFIG.product.totalRecipes} recettes</strong> du guide complet.
+            Cette fiche est un aperçu extrait du guide complet <strong>Bien dans l’Assiette</strong> ({SALES_CONFIG.product.totalRecipes} recettes).
           </div>
           <button
             onClick={() => {

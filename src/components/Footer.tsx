@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
             <div className="text-xs text-slate-600 space-y-3 leading-relaxed">
               {activeModal === 'mentions' && (
                 <>
-                  <p><strong>Éditeur du site :</strong> Assiette Vitalité Éditions Numériques.</p>
+                  <p><strong>Éditeur du site :</strong> Bien dans l’Assiette Éditions Numériques.</p>
                   <p><strong>Contact électronique :</strong> {SALES_CONFIG.product.supportEmail}</p>
                   <p><strong>Hébergement :</strong> Serveurs sécurisés Cloud conformes aux normes européennes.</p>
                   <p><strong>Propriété intellectuelle :</strong> L'ensemble des textes, recettes et photographies contenus dans cet ouvrage sont protégés par le droit d'auteur.</p>

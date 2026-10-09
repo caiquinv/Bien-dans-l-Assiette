@@ -42,6 +42,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCheckout }) => {
 
         {/* Main Headline */}
         <div className="text-center max-w-4xl mx-auto mb-8">
+          <span className="text-[#D3EEA0] font-extrabold text-xs sm:text-sm uppercase tracking-widest block mb-3">
+            Collection culinaire · Bien dans l’Assiette
+          </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-[#FAFCF8] text-balance mb-5 font-serif-display">
             LES {SALES_CONFIG.product.totalRecipes} RECETTES ANTI-INFLAMMATOIRES QUI RENDENT LE{' '}
             <span className="text-[#D3EEA0] underline decoration-[#7DA658]/40 underline-offset-4">

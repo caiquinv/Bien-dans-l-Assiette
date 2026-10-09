@@ -9,7 +9,7 @@ interface OfferStackSectionProps {
 
 export const OfferStackSection: React.FC<OfferStackSectionProps> = ({ onOpenCheckout }) => {
   const offerItems = [
-    { title: `Livre Numérique : ${SALES_CONFIG.product.name}`, price: "47,00 €" },
+    { title: `Guide Numérique : ${SALES_CONFIG.product.fullName}`, price: "47,00 €" },
     { title: "Bonus 1 — 28 Jours de Menus : 4 Semaines Organisées Clé-en-Main", price: "19,90 €" },
     { title: "Bonus 2 — Placard Intelligent + 60 Substitutions Saines", price: "14,90 €" },
     { title: "Bonus 3 — Batch Cooking Express : Cuisinez 1 Fois pour la Semaine", price: "17,90 €" },
@@ -30,7 +30,7 @@ export const OfferStackSection: React.FC<OfferStackSectionProps> = ({ onOpenChec
             Offre de Lancement Limitée : Plus de {SALES_CONFIG.product.discountPercent}% de réduction
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight font-serif-display">
-            OBTENEZ VOTRE PACK COMPLET AU MEILLEUR TARIF
+            OBTENEZ LE PACK « BIEN DANS L’ASSIETTE » AU MEILLEUR TARIF
           </h2>
         </div>
 
@@ -50,7 +50,7 @@ export const OfferStackSection: React.FC<OfferStackSectionProps> = ({ onOpenChec
               AUJOURD'HUI, VOUS RECEVEZ TOUT CECI :
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              Un recueil complet et ses 4 guides pratiques immédiatement téléchargeables
+              Le guide officiel « Bien dans l’Assiette » et ses 4 compléments pratiques téléchargeables
             </p>
           </div>
 

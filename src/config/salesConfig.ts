@@ -44,7 +44,8 @@ export interface FAQItem {
 
 export const SALES_CONFIG = {
   product: {
-    name: "250 Recettes Anti-Inflammatoires & Vitalité",
+    name: "Bien dans l’Assiette",
+    fullName: "Bien dans l’Assiette : 250 Recettes Anti-Inflammatoires & Vitalité",
     tagline: "Le guide culinaire complet pour apaiser la digestion, réduire les inconforts et cuisiner sainement avec plaisir.",
     totalRecipes: 250,
     priceCurrent: 14.90,
@@ -54,20 +55,20 @@ export const SALES_CONFIG = {
     currencySymbol: "€",
     guaranteeDays: 15,
     checkoutUrl: "https://pay.hotmart.com/EXEMPLE_CHECKOUT?checkoutMode=10",
-    supportEmail: "contact@assiette-vitalite.fr",
+    supportEmail: "contact@biendanslassiette.fr",
   },
   
   hero: {
-    topBadge: "100 % EN FRANÇAIS · FORMAT 100 % NUMÉRIQUE",
-    mainHeadline: "Les recettes anti-inflammatoires qui rendent la cuisine saine enfin simple, gourmande et accessible.",
-    subHeadline: "Oubliez les régimes drastiques et la monotonie. Découvrez 250 préparations pleines de goût, pensées pour soulager la digestion, retrouver votre vitalité et simplifier vos repas de la semaine.",
+    topBadge: "BIEN DANS L’ASSIETTE · FORMAT 100 % NUMÉRIQUE",
+    mainHeadline: "Les 250 recettes anti-inflammatoires qui rendent la cuisine saine enfin simple, gourmande et accessible.",
+    subHeadline: "Oubliez les régimes drastiques et la monotonie. Découvrez Bien dans l’Assiette : 250 préparations pleines de goût, pensées pour soulager la digestion, retrouver votre vitalité et simplifier vos repas de la semaine.",
     trustBullets: [
       "250 recettes testées et approuvées",
       "Ingrédients courants des marchés et supermarchés français",
       "Préparations rapides (la plupart en moins de 25 min)",
       "Accès immédiat sur smartphone, tablette et ordinateur"
     ],
-    ctaText: "OUI, JE VEUX ACCÉDER AUX 250 RECETTES",
+    ctaText: "OUI, JE VEUX BIEN DANS L’ASSIETTE",
     ctaSubtext: "Accès instantané par e-mail · Paiement unique sans abonnement caché",
   },
 

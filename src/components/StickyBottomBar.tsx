@@ -35,7 +35,7 @@ export const StickyBottomBar: React.FC<StickyBottomBarProps> = ({ onOpenCheckout
           </div>
           <div className="truncate">
             <div className="text-xs sm:text-sm font-bold text-white truncate">
-              {SALES_CONFIG.product.name}
+              {SALES_CONFIG.product.name} · {SALES_CONFIG.product.totalRecipes} Recettes
             </div>
             <div className="text-[11px] text-[#BFD4B2] flex items-center gap-1.5">
               <span className="font-bold text-[#A7DE66]">

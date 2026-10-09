@@ -20,7 +20,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onOpenCheckout
         </h2>
 
         <p className="text-sm sm:text-base text-[#C6D5BD] max-w-2xl mx-auto mb-8 leading-relaxed">
-          {SALES_CONFIG.product.totalRecipes} recettes gourmandes et simples conçues pour apporter équilibre, légèreté et plaisir à tous vos repas de la semaine.
+          <strong>Bien dans l’Assiette</strong> : {SALES_CONFIG.product.totalRecipes} recettes gourmandes et simples conçues pour apporter équilibre, légèreté et plaisir à tous vos repas de la semaine.
         </p>
 
         {/* CTA Container */}
@@ -29,7 +29,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onOpenCheckout
             onClick={onOpenCheckout}
             className="w-full py-4 px-6 text-base sm:text-lg font-extrabold text-[#111C0C] bg-gradient-to-r from-[#B9E976] via-[#A6DE5E] to-[#92CF47] hover:from-[#C7EE8A] hover:to-[#A4DF55] rounded-xl shadow-xl shadow-[#10190D]/50 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 border-b-4 border-[#689B31] flex items-center justify-center gap-2 group cursor-pointer"
           >
-            <span>JE VEUX ACCÉDER AU LIVRE MAINTENANT</span>
+            <span>JE VEUX ACCÉDER À BIEN DANS L’ASSIETTE</span>
             <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
           </button>
           <div className="text-xs text-[#AFC2A3]">
