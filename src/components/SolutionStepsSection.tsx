@@ -1,29 +1,32 @@
 import React from 'react';
 import { SALES_CONFIG } from '../config/salesConfig';
 import { ChevronRight } from 'lucide-react';
+import stepChooseImg from '../assets/images/step_choose_1791511774946.webp';
+import stepVerifyImg from '../assets/images/step_verify_1791511785609.webp';
+import stepCookImg from '../assets/images/step_cook_1791511794061.webp';
 
 export const SolutionStepsSection: React.FC = () => {
   const steps = [
     {
       num: '1',
       word: 'Choisissez',
-      img: '/src/assets/images/step_choose_1791511774946.webp',
+      img: stepChooseImg,
       alt: 'Sélectionner une recette sur téléphone',
       caption: 'Parmi 250 idées classées.',
     },
     {
       num: '2',
       word: 'Vérifiez',
-      img: '/src/assets/images/step_verify_1791511785609.webp',
+      img: stepVerifyImg,
       alt: 'Liste de courses et légumes frais',
       caption: 'Ingrédients simples du quotidien.',
     },
     {
       num: '3',
       word: 'Cuisinez',
-      img: '/src/assets/images/step_cook_1791511794061.webp',
+      img: stepCookImg,
       alt: 'Plat chaud servi à table',
-      caption: 'Prêt en moins de 25 min.',
+      caption: 'Suivez les étapes numérotées.',
     },
   ];
 
@@ -56,13 +59,14 @@ export const SolutionStepsSection: React.FC = () => {
                 <h3 className="text-base font-extrabold text-[#2D3E1E] font-serif-display mb-0.5">
                   {step.word}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-snug">
+                <p className="text-sm text-slate-600 leading-snug">
                   {step.caption}
                 </p>
               </div>
 
+              {/* Visual arrow indicator between steps on mobile & desktop */}
               {idx < steps.length - 1 && (
-                <div className="hidden sm:hidden items-center justify-center text-[#4E683C] shrink-0">
+                <div className="shrink-0 text-[#7C9766] flex items-center justify-center sm:hidden">
                   <ChevronRight className="w-5 h-5" />
                 </div>
               )}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SIX_SAMPLE_RECIPES, FULL_EXTRACT_RECIPE } from '../data/sampleRecipes';
 import { Clock, ChevronDown, ChevronUp } from 'lucide-react';
+import squashSoupImg from '../assets/images/turmeric_squash_soup_1791431086146.webp';
 
 export const RecipeShowcaseSection: React.FC = () => {
   const [showSteps, setShowSteps] = useState(false);
@@ -54,7 +55,7 @@ export const RecipeShowcaseSection: React.FC = () => {
             {/* Velouté photo */}
             <div className="aspect-16/9 w-full overflow-hidden bg-slate-100">
               <img
-                src="/src/assets/images/turmeric_squash_soup_1791431086146.webp"
+                src={squashSoupImg}
                 alt="Velouté de potimarron au curcuma"
                 width={500}
                 height={280}
@@ -69,16 +70,16 @@ export const RecipeShowcaseSection: React.FC = () => {
               <h3 className="text-base font-bold font-serif-display text-slate-900 mb-0.5 leading-snug">
                 {FULL_EXTRACT_RECIPE.title}
               </h3>
-              <p className="text-xs text-[#3E582E] font-medium mb-3">
+              <p className="text-sm text-[#3E582E] font-medium mb-3">
                 {FULL_EXTRACT_RECIPE.portions} · {FULL_EXTRACT_RECIPE.timing}
               </p>
 
               {/* Ingrédients visibles */}
               <div className="mb-3">
-                <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1.5 pb-1 border-b border-[#E1E7D8]">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 pb-1 border-b border-[#E1E7D8]">
                   Ingrédients
                 </h4>
-                <ul className="space-y-1 text-xs text-slate-700">
+                <ul className="space-y-1 text-sm text-slate-700">
                   {FULL_EXTRACT_RECIPE.ingredients.map((ing, i) => (
                     <li key={i} className="flex items-start gap-1.5">
                       <span className="text-[#3E582E] font-bold">•</span>
@@ -92,14 +93,14 @@ export const RecipeShowcaseSection: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowSteps(!showSteps)}
-                className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#F0F4EC] hover:bg-[#E5EDDC] text-[#2D3E1E] text-xs font-bold transition-colors border border-[#D4DFCC]"
+                className="w-full flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-lg bg-[#F0F4EC] hover:bg-[#E5EDDC] text-[#2D3E1E] text-sm font-bold transition-colors border border-[#D4DFCC] cursor-pointer"
               >
                 <span>{showSteps ? 'Masquer les étapes' : 'Voir les étapes'}</span>
                 {showSteps ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </button>
 
               {showSteps && (
-                <ol className="mt-3 space-y-2 text-xs text-slate-700 pt-2 border-t border-[#E1E7D8]">
+                <ol className="mt-3 space-y-2 text-sm text-slate-700 pt-2 border-t border-[#E1E7D8]">
                   {FULL_EXTRACT_RECIPE.steps.map((st, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#2D3E1E] text-white text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">

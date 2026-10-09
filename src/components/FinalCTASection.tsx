@@ -31,7 +31,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ checkoutUrl })
             {SALES_CONFIG.finalCta.cta}
           </a>
 
-          <p className="text-xs text-[#AFC2A3]">
+          <p className="text-sm text-[#AFC2A3]">
             {SALES_CONFIG.hero.trustSubline}
           </p>
         </div>

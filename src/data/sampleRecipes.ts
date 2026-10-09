@@ -63,14 +63,15 @@ export const FULL_EXTRACT_RECIPE = {
   portions: '4 personnes',
   timing: '10 min prép. · 25 min cuisson',
   ingredients: [
-    '800 g de potimarron coupé en cubes',
-    '200 ml de lait de coco crémeux',
-    '1 oignon jaune émincé',
-    '1 c. à café de curcuma en poudre',
-    '1 c. à café de gingembre frais râpé',
-    '500 ml de bouillon de légumes doux',
-    '1 c. à soupe d’huile d’olive extra-vierge',
-    'Graines de courge, sel et poivre noir'
+    '600 g de potimarron coupé en cubes (avec la peau)',
+    '1 oignon doux émincé',
+    '1 gousse d\'ail pressée',
+    '1 c. à café de curcuma moulu',
+    '1 cm de gingembre frais râpé',
+    '200 ml de lait de coco',
+    '500 ml de bouillon de légumes',
+    '1 c. à soupe d\'huile d\'olive vierge extra',
+    '1 c. à soupe de graines de courge'
   ],
   steps: [
     'Faire revenir l’oignon dans l’huile d’olive pendant 3 minutes dans une grande casserole.',

@@ -1,34 +1,42 @@
 import React from 'react';
+import bonusMenuImg from '../assets/images/bonus_menu_1791511908664.webp';
+import bonusBatchImg from '../assets/images/bonus_batch_cooking_1791513422181.webp';
+import bonusPlacardImg from '../assets/images/bonus_placard_1791513439634.webp';
+import bonusSaucesImg from '../assets/images/bonus_sauces_1791513457795.webp';
 
 export const BonusesSection: React.FC = () => {
   const bonuses = [
     {
       id: '1',
-      title: '28 Jours de Menus',
-      summary: '4 semaines de repas planifiés du petit-déjeuner au dîner.',
-      cover: '/src/assets/images/bonus_menu_1791511908664.webp',
+      title: '28 jours de menus clé-en-main',
+      summary: '4 semaines organisées du lundi au dimanche.',
+      bullets: ['Listes de courses par rayon', 'Du lundi au dimanche'],
+      cover: bonusMenuImg,
       alt: 'Couvercle 28 Jours de Menus',
     },
     {
       id: '2',
-      title: 'Listes de Courses',
-      summary: 'Courses prêtes par rayon pour chaque semaine.',
-      cover: '/src/assets/images/bonus_courses_1791511919389.webp',
-      alt: 'Couvercle Listes de Courses',
+      title: 'Batch cooking express',
+      summary: 'Préparez vos bases et assemblez en 10 minutes.',
+      bullets: ['Bases prêtes le week-end', 'Dîners en 10 minutes'],
+      cover: bonusBatchImg,
+      alt: 'Couvercle Batch Cooking Express',
     },
     {
       id: '3',
-      title: 'Fiches Ingrédients',
-      summary: 'Les aliments clés décryptés et comment les utiliser.',
-      cover: '/src/assets/images/bonus_fiches_1791511928957.webp',
-      alt: 'Couvercle Fiches Ingrédients',
+      title: 'Placard sain & 60 substitutions',
+      summary: 'Adaptez facilement vos recettes du quotidien.',
+      bullets: ['60 équivalences faciles', 'Les essentiels à garder'],
+      cover: bonusPlacardImg,
+      alt: 'Couvercle Placard sain et substitutions',
     },
     {
       id: '4',
-      title: 'Organisation Cuisine',
-      summary: 'Gagnez du temps chaque soir sans stress.',
-      cover: '/src/assets/images/bonus_organisation_1791511938782.webp',
-      alt: 'Couvercle Guide Organisation',
+      title: '30 sauces, vinaigrettes & dips',
+      summary: 'Renouvelez vos plats en quelques minutes.',
+      bullets: ['Prêtes en quelques minutes', 'Ingrédients du placard'],
+      cover: bonusSaucesImg,
+      alt: 'Couvercle 30 Sauces, Vinaigrettes et Dips',
     },
   ];
 
@@ -39,7 +47,7 @@ export const BonusesSection: React.FC = () => {
           4 compléments inclus avec le guide
         </h2>
 
-        {/* 2x2 Grid with cover, name, "INCLUS" badge and 1 concise line (<=8 words) */}
+        {/* 2x2 Grid with cover, name, "INCLUS" badge, 1 line and 2 bullets */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {bonuses.map((b) => (
             <div
@@ -64,9 +72,17 @@ export const BonusesSection: React.FC = () => {
               <h3 className="text-sm font-bold text-slate-900 font-serif-display leading-snug mb-1">
                 {b.title}
               </h3>
-              <p className="text-xs text-slate-600 leading-snug mt-auto">
+              <p className="text-sm text-slate-600 leading-snug mb-2">
                 {b.summary}
               </p>
+              <ul className="space-y-1 mt-auto pt-2 border-t border-[#EAEFE4] text-xs text-slate-700">
+                {b.bullets.map((bullet, idx) => (
+                  <li key={idx} className="flex items-center gap-1.5 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#3E582E] shrink-0" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

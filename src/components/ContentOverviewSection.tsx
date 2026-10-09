@@ -1,37 +1,42 @@
 import React from 'react';
 import { SALES_CONFIG } from '../config/salesConfig';
 import { Users, Clock, ShoppingBasket, CheckCircle2 } from 'lucide-react';
+import catBreakfastImg from '../assets/images/cat_breakfast_1791511823205.webp';
+import catLunchImg from '../assets/images/cat_lunch_1791511832870.webp';
+import catDinnerImg from '../assets/images/cat_dinner_1791511843395.webp';
+import catDessertImg from '../assets/images/cat_dessert_1791511857598.webp';
+import catSnacksImg from '../assets/images/cat_snacks_1791511882488.webp';
 
 export const ContentOverviewSection: React.FC = () => {
   const categories = [
     {
       count: '50',
       title: 'Petits-déjeuners',
-      img: '/src/assets/images/cat_breakfast_1791511823205.webp',
+      img: catBreakfastImg,
       alt: 'Petits-déjeuners sains',
     },
     {
       count: '50',
       title: 'Déjeuners',
-      img: '/src/assets/images/cat_lunch_1791511832870.webp',
+      img: catLunchImg,
       alt: 'Déjeuners équilibrés',
     },
     {
       count: '50',
       title: 'Dîners',
-      img: '/src/assets/images/cat_dinner_1791511843395.webp',
+      img: catDinnerImg,
       alt: 'Dîners réconfortants',
     },
     {
       count: '50',
       title: 'Desserts',
-      img: '/src/assets/images/cat_dessert_1791511857598.webp',
+      img: catDessertImg,
       alt: 'Desserts légers',
     },
     {
       count: '50',
       title: 'Snacks & Boissons',
-      img: '/src/assets/images/cat_snacks_1791511882488.webp',
+      img: catSnacksImg,
       alt: 'Collations et boissons douces',
       fullWidth: true,
     },
@@ -63,11 +68,11 @@ export const ContentOverviewSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               {/* HTML overlay: large 50 + category name */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent flex flex-col justify-end p-3 text-white">
-                <span className="text-2xl sm:text-3xl font-extrabold font-serif-display leading-none text-[#E8F5D0]">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent flex flex-col justify-end p-3.5 sm:p-4 text-white">
+                <span className="text-2xl sm:text-3xl font-black font-serif-display leading-none text-[#E8F5D8] drop-shadow-sm">
                   {cat.count}
                 </span>
-                <span className="text-xs sm:text-sm font-bold tracking-wide uppercase mt-0.5">
+                <span className="text-xs sm:text-sm font-bold tracking-wide uppercase mt-1 text-white/95">
                   {cat.title}
                 </span>
               </div>
@@ -75,24 +80,24 @@ export const ContentOverviewSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Final sentence with 4 icons in one line */}
-        <div className="bg-white p-3 sm:p-3.5 rounded-xl border border-[#DCE4D4] shadow-2xs">
-          <div className="grid grid-cols-4 gap-2 text-center text-slate-700 text-[11px] sm:text-xs">
-            <div className="flex flex-col items-center gap-1">
-              <Users className="w-4 h-4 text-[#2D3E1E]" />
-              <span className="font-medium">Portions</span>
+        {/* 1 single line with 4 icons: portions, temps, ingrédients, étapes */}
+        <div className="bg-white rounded-xl p-3 border border-[#DCE4D4] shadow-2xs">
+          <div className="grid grid-cols-4 gap-1 sm:gap-2 text-center text-xs font-semibold text-slate-700">
+            <div className="flex flex-col items-center justify-center p-1">
+              <Users className="w-4 h-4 text-[#2D3E1E] mb-1" />
+              <span className="text-xs sm:text-sm">Portions</span>
             </div>
-            <div className="flex flex-col items-center gap-1">
-              <Clock className="w-4 h-4 text-[#2D3E1E]" />
-              <span className="font-medium">Temps</span>
+            <div className="flex flex-col items-center justify-center p-1">
+              <Clock className="w-4 h-4 text-[#2D3E1E] mb-1" />
+              <span className="text-xs sm:text-sm">Temps</span>
             </div>
-            <div className="flex flex-col items-center gap-1">
-              <ShoppingBasket className="w-4 h-4 text-[#2D3E1E]" />
-              <span className="font-medium">Ingrédients</span>
+            <div className="flex flex-col items-center justify-center p-1">
+              <ShoppingBasket className="w-4 h-4 text-[#2D3E1E] mb-1" />
+              <span className="text-xs sm:text-sm">Ingrédients</span>
             </div>
-            <div className="flex flex-col items-center gap-1">
-              <CheckCircle2 className="w-4 h-4 text-[#2D3E1E]" />
-              <span className="font-medium">Étapes simples</span>
+            <div className="flex flex-col items-center justify-center p-1">
+              <CheckCircle2 className="w-4 h-4 text-[#2D3E1E] mb-1" />
+              <span className="text-xs sm:text-sm">Étapes</span>
             </div>
           </div>
         </div>

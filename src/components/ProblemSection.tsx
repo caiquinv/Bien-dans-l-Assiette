@@ -1,6 +1,7 @@
 import React from 'react';
 import { SALES_CONFIG } from '../config/salesConfig';
 import { HelpCircle, RefreshCw, AlertCircle } from 'lucide-react';
+import fridgeImg from '../assets/images/fridge_evening_1791511758928.webp';
 
 export const ProblemSection: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ export const ProblemSection: React.FC = () => {
         {/* 16:9 warm photo of evening fridge hesitation */}
         <div className="relative rounded-2xl overflow-hidden shadow-md border border-[#DCE4D4] aspect-video mb-5 bg-[#E8EDE2]">
           <img
-            src="/src/assets/images/fridge_evening_1791511758928.webp"
+            src={fridgeImg}
             alt="Cuisine au crépuscule devant le frigo ouvert"
             width={720}
             height={405}
@@ -29,7 +30,7 @@ export const ProblemSection: React.FC = () => {
             <div className="w-9 h-9 rounded-full bg-[#F4F7EF] text-[#2D3E1E] flex items-center justify-center mb-1.5">
               <HelpCircle className="w-5 h-5 text-[#2D3E1E]" />
             </div>
-            <span className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+            <span className="text-sm font-semibold text-slate-800 leading-snug">
               La même question
             </span>
           </div>
@@ -38,7 +39,7 @@ export const ProblemSection: React.FC = () => {
             <div className="w-9 h-9 rounded-full bg-[#F4F7EF] text-[#2D3E1E] flex items-center justify-center mb-1.5">
               <RefreshCw className="w-5 h-5 text-[#2D3E1E]" />
             </div>
-            <span className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+            <span className="text-sm font-semibold text-slate-800 leading-snug">
               Les mêmes plats
             </span>
           </div>
@@ -47,7 +48,7 @@ export const ProblemSection: React.FC = () => {
             <div className="w-9 h-9 rounded-full bg-[#F4F7EF] text-[#2D3E1E] flex items-center justify-center mb-1.5">
               <AlertCircle className="w-5 h-5 text-[#2D3E1E]" />
             </div>
-            <span className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+            <span className="text-sm font-semibold text-slate-800 leading-snug">
               Trop compliqué
             </span>
           </div>

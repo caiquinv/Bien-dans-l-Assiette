@@ -62,14 +62,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ checkoutUrl, onHeroCta
             {SALES_CONFIG.hero.cta}
           </a>
 
-          {/* 6. Linha abaixo do botão (13px) */}
-          <p className="text-[13px] text-[#BFD4AF] mt-2.5">
+          {/* 6. Linha abaixo do botão (14px) */}
+          <p className="text-sm text-[#BFD4AF] mt-2.5">
             {SALES_CONFIG.hero.trustSubline}
           </p>
         </div>
 
         {/* 3 selos em linha logo abaixo da dobra */}
-        <div className="w-full mt-6 pt-5 border-t border-[#2F4426] flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs text-[#C6D8B8]">
+        <div className="w-full mt-6 pt-5 border-t border-[#2F4426] flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-sm text-[#C6D8B8]">
           {SALES_CONFIG.hero.trustBullets.map((bullet, idx) => (
             <span key={idx} className="inline-flex items-center gap-1.5 bg-[#283C21] px-2.5 py-1 rounded-md border border-[#3B5431]">
               <span className="text-[#9FD85B] font-bold">✓</span>

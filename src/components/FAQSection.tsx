@@ -47,7 +47,7 @@ export const FAQSection: React.FC = () => {
                   />
                 </button>
                 {isOpen && (
-                  <div className="p-4 sm:p-5 pt-0 bg-[#FAFBF8] text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  <div className="p-4 sm:p-5 pt-0 bg-[#FAFBF8] text-sm text-slate-600 leading-relaxed border-t border-slate-100">
                     <p className="pt-3">{item.answer}</p>
                   </div>
                 )}
