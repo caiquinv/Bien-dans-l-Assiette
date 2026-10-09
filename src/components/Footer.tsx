@@ -42,11 +42,11 @@ export const Footer: React.FC = () => {
           </button>
           <span>·</span>
           <a
-            href={`mailto:${SALES_CONFIG.product.supportEmail}`}
+            href={`mailto:${SALES_CONFIG.supportEmail}`}
             className="hover:text-white transition-colors inline-flex items-center gap-1"
           >
             <Mail className="w-3 h-3" />
-            <span>Support Client : {SALES_CONFIG.product.supportEmail}</span>
+            <span>Support Client : {SALES_CONFIG.supportEmail}</span>
           </a>
         </div>
 
@@ -86,7 +86,7 @@ export const Footer: React.FC = () => {
               {activeModal === 'mentions' && (
                 <>
                   <p><strong>Éditeur du site :</strong> Bien dans l’Assiette Éditions Numériques.</p>
-                  <p><strong>Contact électronique :</strong> {SALES_CONFIG.product.supportEmail}</p>
+                  <p><strong>Contact électronique :</strong> {SALES_CONFIG.supportEmail}</p>
                   <p><strong>Hébergement :</strong> Serveurs sécurisés Cloud conformes aux normes européennes.</p>
                   <p><strong>Propriété intellectuelle :</strong> L'ensemble des textes, recettes et photographies contenus dans cet ouvrage sont protégés par le droit d'auteur.</p>
                 </>
@@ -95,7 +95,7 @@ export const Footer: React.FC = () => {
                 <>
                   <p><strong>Nature du produit :</strong> Guide numérique (livre électronique + bonus téléchargeables au format PDF).</p>
                   <p><strong>Livraison :</strong> Accès instantané et automatisé par voie électronique dès la validation du paiement.</p>
-                  <p><strong>Garantie légale et commerciale :</strong> Garantie « Satisfait ou Remboursé » de 15 jours sur simple demande écrite à {SALES_CONFIG.product.supportEmail}.</p>
+                  <p><strong>Garantie légale et commerciale :</strong> Garantie « Satisfait ou Remboursé » de 15 jours sur simple demande écrite à {SALES_CONFIG.supportEmail}.</p>
                   <p><strong>Prix :</strong> Facturation en Euros TTC, paiement unique sans aucun abonnement périodique.</p>
                 </>
               )}

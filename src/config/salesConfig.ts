@@ -1,39 +1,16 @@
-export interface RecipeItem {
+export interface RecipePreviewItem {
   id: string;
   title: string;
-  category: 'breakfast' | 'lunch' | 'dinner' | 'dessert' | 'snack';
-  categoryLabel: string;
+  category: string;
   prepTime: string;
-  cookTime: string;
-  difficulty: 'Très facile' | 'Facile' | 'Intermédiaire';
-  benefits: string;
-  description: string;
   image: string;
-  ingredients: string[];
-  steps: string[];
-  chefTip: string;
 }
 
 export interface BonusItem {
   id: number;
-  badge: string;
   title: string;
-  subtitle: string;
   description: string;
-  estimatedValue: number;
-  highlights: string[];
-  iconName: string;
-}
-
-export interface TestimonialItem {
-  id: string;
-  name: string;
-  location: string;
-  age: number;
-  rating: number;
-  headline: string;
-  quote: string;
-  verified: boolean;
+  bullets: string[];
 }
 
 export interface FAQItem {
@@ -42,272 +19,298 @@ export interface FAQItem {
   answer: string;
 }
 
-export const SALES_CONFIG = {
+export interface SalesConfig {
+  checkoutUrl: string;
+  metaPixelId: string | null;
+  supportEmail: string;
+  launchEndDate: string | null;
   product: {
-    name: "Bien dans l’Assiette",
-    fullName: "Bien dans l’Assiette : 250 Recettes Anti-Inflammatoires & Vitalité",
-    tagline: "Le guide culinaire complet pour apaiser la digestion, réduire les inconforts et cuisiner sainement avec plaisir.",
-    totalRecipes: 250,
-    priceCurrent: 14.90,
-    priceCurrentFormatted: "14,90",
-    priceOriginal: 59,
-    discountPercent: 75,
-    currencySymbol: "€",
-    guaranteeDays: 15,
-    checkoutUrl: "https://pay.hotmart.com/EXEMPLE_CHECKOUT?checkoutMode=10",
-    supportEmail: "contact@biendanslassiette.fr",
-  },
-  
+    name: string;
+    totalRecipes: number;
+    price: string;
+    currencySymbol: string;
+  };
   hero: {
-    topBadge: "BIEN DANS L’ASSIETTE · FORMAT 100 % NUMÉRIQUE",
-    mainHeadline: "Les 250 recettes anti-inflammatoires qui rendent la cuisine saine enfin simple, gourmande et accessible.",
-    subHeadline: "Oubliez les régimes drastiques et la monotonie. Découvrez Bien dans l’Assiette : 250 préparations pleines de goût, pensées pour soulager la digestion, retrouver votre vitalité et simplifier vos repas de la semaine.",
+    badge: string;
+    h1: string;
+    subtitle: string;
+    cta: string;
+    trustSubline: string;
+    trustBullets: string[];
+  };
+  problem: {
+    title: string;
+    text: string;
+    cards: Array<{
+      title: string;
+      desc: string;
+    }>;
+  };
+  solutionSteps: {
+    title: string;
+    steps: Array<{
+      number: string;
+      title: string;
+      desc: string;
+    }>;
+  };
+  content: {
+    title: string;
+    categories: Array<{
+      title: string;
+      desc: string;
+    }>;
+    note: string;
+  };
+  ingredientsSection: {
+    title: string;
+    text: string;
+    items: string[];
+  };
+  bonuses: BonusItem[];
+  offer: {
+    title: string;
+    included: string[];
+    price: string;
+    priceSubline: string;
+    cta: string;
+    trustLine: string;
+  };
+  guarantee: {
+    title: string;
+    text: string;
+  };
+  faq: FAQItem[];
+  finalCta: {
+    title: string;
+    cta: string;
+  };
+  testimonials: Array<any>;
+}
+
+export const SALES_CONFIG: SalesConfig = {
+  checkoutUrl: "https://pay.hotmart.com/H107953147Q",
+  metaPixelId: null, // "por enquanto nao tenho, depois peço para adicionar"
+  supportEmail: "supportbiedanslassiete@gmail.com",
+  launchEndDate: null, // se null, nenhuma mensagem de urgência/prazo é exibida
+
+  product: {
+    name: "Bien dans l'Assiette",
+    totalRecipes: 250,
+    price: "14,90",
+    currencySymbol: "€",
+  },
+
+  hero: {
+    badge: "GUIDE NUMÉRIQUE · 250 RECETTES · PDF",
+    h1: "« Qu'est-ce qu'on mange ce soir ? » Vous aurez enfin la réponse.",
+    subtitle: "250 recettes simples, inspirées de l'alimentation anti-inflammatoire, avec 28 jours de menus et les listes de courses déjà prêtes.",
+    cta: "JE VEUX MES 250 RECETTES · 14,90 €",
+    trustSubline: "Paiement unique · Accès immédiat par e-mail · Garantie 15 jours",
     trustBullets: [
-      "250 recettes testées et approuvées",
-      "Ingrédients courants des marchés et supermarchés français",
-      "Préparations rapides (la plupart en moins de 25 min)",
-      "Accès immédiat sur smartphone, tablette et ordinateur"
-    ],
-    ctaText: "OUI, JE VEUX BIEN DANS L’ASSIETTE",
-    ctaSubtext: "Accès instantané par e-mail · Paiement unique sans abonnement caché",
-  },
-
-  problemSection: {
-    kicker: "LA VÉRITÉ QUE PERSONNE NE VOUS DIT",
-    title: "Le problème n'est pas votre manque de volonté. C'est l'inflammation silencieuse du quotidien.",
-    description: "Jour après jour, des habitudes alimentaires involontaires surchargent votre organisme sans que vous ne compreniez pourquoi votre énergie chute après le déjeuner ou pourquoi vos repas deviennent un casse-tête.",
-    symptoms: [
-      {
-        title: "Ballonnements et lourdeurs",
-        description: "Vous sortez souvent de table l'estomac tendu, avec une sensation de fatigue pesante au lieu d'un regain d'énergie.",
-        icon: "ShieldAlert"
-      },
-      {
-        title: "Coup de fatigue brutal à 14h",
-        description: "Une baisse d'attention et d'énergie dans l'après-midi qui vous pousse vers le sucre rapide ou le café supplémentaire.",
-        icon: "BatteryLow"
-      },
-      {
-        title: "Manque d'inspiration quotidien",
-        description: "À 19h30, la même question revient : « Qu'est-ce qu'on mange ce soir ? » Vous finissez par faire toujours les 4 mêmes plats.",
-        icon: "ChefHat"
-      },
-      {
-        title: "Frustration des régimes drastiques",
-        description: "Marre des listes d'aliments interdits impossibles à tenir en famille et des assiettes tristes sans la moindre saveur.",
-        icon: "Flame"
-      }
-    ],
-    transitionQuote: "Imaginez maintenant disposer d'un recueil complet de 250 recettes anti-inflammatoires savoureuses, créées pour régaler toute la tablée sans jamais compter la moindre calorie."
-  },
-
-  comparison: {
-    title: "Qu'est-ce qui entretient l'inconfort dans l'assiette ?",
-    subtitle: "Et par quoi le remplacer facilement au quotidien dans vos habitudes ?",
-    badHabits: [
-      "Sucres raffinés et sirops cachés dans les sauces",
-      "Plats ultra-transformés et additifs industriels",
-      "Huiles hydrogénées ou raffinées riches en oméga-6 pro-inflammatoires",
-      "Farines blanches à indice glycémique élevé",
-      "Boissons industrielles sucrées ou sodas édulcorés",
-      "Assaisonnements monotones dépourvus de micronutriments"
-    ],
-    goodHabits: [
-      "Huile d'olive vierge extra première pression à froid & huile de colza",
-      "Légumes de saison gorgés d'antioxydants naturels",
-      "Épices protectrices douces : curcuma, gingembre, cannelle de Ceylan",
-      "Poissons gras & graines riches en oméga-3 bienfaisants",
-      "Légumineuses fondantes et céréales complètes douces",
-      "Herbes aromatiques fraîches : romarin, thym, basilic et persil"
+      "Ingrédients de supermarché",
+      "La plupart prêtes en moins de 25 min",
+      "Sur téléphone, tablette et ordinateur"
     ]
   },
 
-  pillars: [
-    {
-      number: "01",
-      category: "50 Petits-Déjeuners Énergisants",
-      description: "Pour démarrer la journée sans pic d'insuline ni fringale à 10h. Puddings de chia crémeux, porridges parfumés, pancakes moelleux à la farine d'avoine et tartines salées d'inspiration provençale.",
-      badge: "Matin sans coup de pompe"
-    },
-    {
-      number: "02",
-      category: "50 Déjeuners Complets & Équilibrés",
-      description: "Des assiettes composées, bowls vitaminés et plats chauds rapides qui nourrissent en profondeur et vous évitent le coup de barre de début d'après-midi.",
-      badge: "Vitalité pour l'après-midi"
-    },
-    {
-      number: "03",
-      category: "50 Dîners Réconfortants & Légers",
-      description: "Veloutés soyeux aux épices douces, poissons vapeur aux aromates, poêlées de légumes de saison et mijotés légers pour un endormissement paisible et une nuit réparatrice.",
-      badge: "Digestion sereine pour la nuit"
-    },
-    {
-      number: "04",
-      category: "50 Douceurs & Desserts Équilibrés",
-      description: "Crumble pomme-noisette sans sucre raffiné, fondants au chocolat noir 85% et crème d'avocat, mousses fruitées. Le plaisir sucré sans l'inflammation.",
-      badge: "Plaisir 100% déculpabilisant"
-    },
-    {
-      number: "05",
-      category: "50 Collations & Boissons Bienfaisantes",
-      description: "Golden Lattes onctueux, infusions digestives maison aux herbes du jardin, energy balls aux dattes et amandes pour combler les petits creux sainement.",
-      badge: "Pause réconfortante"
-    }
-  ],
+  problem: {
+    title: "19h30. Tout le monde a faim. Et rien n'est décidé.",
+    text: "Le frigo n'est pas vide. C'est l'idée qui manque. Alors on refait l'un des quatre plats habituels, ou on commande.",
+    cards: [
+      {
+        title: "La même question, tous les soirs",
+        desc: "Décider du repas quand on est déjà fatigué, c'est le plus difficile."
+      },
+      {
+        title: "Toujours les mêmes plats",
+        desc: "Par manque d'idées, pas par manque d'envie."
+      },
+      {
+        title: "Des recettes « saines » trop compliquées",
+        desc: "Ingrédients introuvables, étapes interminables."
+      }
+    ]
+  },
+
+  solutionSteps: {
+    title: "La solution : décider avant d'avoir faim.",
+    steps: [
+      {
+        number: "1",
+        title: "Choisissez",
+        desc: "Parcourez le sommaire et repérez un plat qui vous fait envie."
+      },
+      {
+        number: "2",
+        title: "Vérifiez",
+        desc: "Ingrédients et quantités sont indiqués : ajoutez ce qui manque à votre liste de courses."
+      },
+      {
+        number: "3",
+        title: "Cuisinez",
+        desc: "Le soir venu, suivez les étapes numérotées. Vous savez par où commencer."
+      }
+    ]
+  },
+
+  content: {
+    title: "250 recettes pour toute la journée",
+    categories: [
+      {
+        title: "50 petits-déjeuners",
+        desc: "Des préparations salées ou sucrées faciles pour démarrer la journée sans hésiter."
+      },
+      {
+        title: "50 déjeuners",
+        desc: "Des assiettes composées, bowls et plats complets pour le repas du midi."
+      },
+      {
+        title: "50 dîners",
+        desc: "Des veloutés, poissons au four et poêlées simples pour le repas du soir."
+      },
+      {
+        title: "50 desserts",
+        desc: "Des douceurs aux fruits, crumbles et compotes avec des ingrédients simples."
+      },
+      {
+        title: "50 snacks & boissons",
+        desc: "Des en-cas maison, infusions et boissons douces pour les pauses de la journée."
+      }
+    ],
+    note: "Chaque recette indique les portions, le temps de préparation, les ingrédients et les étapes numérotées. Le sommaire cliquable vous emmène directement à la recette."
+  },
+
+  ingredientsSection: {
+    title: "Une cuisine inspirée de l'alimentation anti-inflammatoire",
+    text: "Des produits bruts, des légumes de saison, de bonnes huiles et des épices. Ce n'est ni un régime ni un traitement : c'est de la cuisine de tous les jours.",
+    items: [
+      "Huile d'olive vierge extra première pression à froid et huile de colza",
+      "Légumes frais de saison et herbes aromatiques de nos terroirs",
+      "Épices douces de cuisine : curcuma, gingembre, cannelle de Ceylan",
+      "Poissons et graines pour de bons apports au quotidien",
+      "Légumineuses fondantes et céréales complètes accessibles",
+      "Fruits frais et oléagineux non grillés non salés"
+    ]
+  },
 
   bonuses: [
     {
       id: 1,
-      badge: "BONUS OFFERT #1",
-      title: "28 Jours de Menus Anti-Inflammatoires Clé-en-Main",
-      subtitle: "4 semaines complètes planifiées du lundi au dimanche",
-      description: "Ne vous demandez plus quoi préparer. Suivez un calendrier complet de 4 semaines équilibrant petits-déjeuners, déjeuners et dîners avec les listes de courses associées pour gagner un temps précieux chaque semaine.",
-      estimatedValue: 19.90,
-      highlights: ["4 semaines structurées", "Listes de courses par rayon", "Zéro gaspillage alimentaire"],
-      iconName: "CalendarDays"
+      title: "28 jours de menus clé-en-main",
+      description: "4 semaines de repas organisées du lundi au dimanche pour ne plus vous poser la question du menu.",
+      bullets: [
+        "Menus structurés semaine par semaine",
+        "Listes de courses organisées par rayon",
+        "Planification du lundi au dimanche"
+      ]
     },
     {
       id: 2,
-      badge: "BONUS OFFERT #2",
-      title: "Le Guide du Placard Sain & 60 Substitutions Magiques",
-      subtitle: "Transformez vos recettes favorites en versions anti-inflammatoires",
-      description: "Comment remplacer la crème, le beurre, le sucre blanc ou la farine de blé sans perdre une once de saveur ni de texture dans vos recettes de famille.",
-      estimatedValue: 14.90,
-      highlights: ["60 équivalences faciles", "Guide d'achat supermarché & bio", "Les indispensables à avoir"],
-      iconName: "BookOpenCheck"
+      title: "Batch cooking express",
+      description: "Une session courte le week-end pour préparer vos bases et assembler vos dîners en 10 minutes.",
+      bullets: [
+        "Méthode d'organisation pratique",
+        "Conseils de conservation des préparations",
+        "Assemblage rapide les soirs de semaine"
+      ]
     },
     {
       id: 3,
-      badge: "BONUS OFFERT #3",
-      title: "Batch Cooking Express : Cuisinez 1 Fois, Mangez Bien Toute la Semaine",
-      subtitle: "2 heures le week-end pour libérer vos soirs de semaine",
-      description: "La méthode pas-à-pas pour préparer vos bases, découper vos légumes et assembler des dîners frais et chauds en 10 minutes chrono du lundi au vendredi.",
-      estimatedValue: 17.90,
-      highlights: ["Méthode 100% pratique", "Conservation optimale au frigo", "Fini le stress du dîner"],
-      iconName: "ClockAlert"
+      title: "Placard sain & 60 substitutions",
+      description: "Le guide pratique pour adapter vos recettes du quotidien avec ce que vous avez sous la main.",
+      bullets: [
+        "60 équivalences faciles d'ingrédients",
+        "Les essentiels à toujours garder en réserve",
+        "Repères d'achat pour le supermarché habituel"
+      ]
     },
     {
       id: 4,
-      badge: "BONUS OFFERT #4",
-      title: "30 Sauces, Vinaigrettes & Dips Bienfaisants",
-      subtitle: "Le secret pour sublimer n'importe quel légume ou plat en 2 minutes",
-      description: "Vinaigrettes au curcuma et citron confit, pesto d'herbes fraîches aux noix, sauce tahini crémeuse à l'ail doux... Donnez une dimension gastronomique à toutes vos assiettes.",
-      estimatedValue: 9.90,
-      highlights: ["30 recettes express", "Prêtes en 3 minutes", "Subliment les légumes"],
-      iconName: "Sparkles"
+      title: "30 sauces, vinaigrettes & dips",
+      description: "30 recettes rapides pour assaisonner vos légumes et renouveler vos plats en 2 minutes.",
+      bullets: [
+        "Préparations express en quelques minutes",
+        "Ingrédients simples du placard",
+        "Variations d'herbes et d'épices douces"
+      ]
     }
   ],
 
-  testimonials: [
-    {
-      id: "test-1",
-      name: "Claire Rodier",
-      location: "Lyon (69)",
-      age: 44,
-      rating: 5,
-      headline: "« Une vraie renaissance pour ma digestion après les repas »",
-      quote: "En seulement deux semaines, j'ai senti une différence incroyable. Fini le ventre gonflé après le déjeuner et le coup de pompe au bureau. Les recettes sont ultra simples, les ingrédients s'achètent au Carrefour du coin et même mes ados en redemandent.",
-      verified: true
-    },
-    {
-      id: "test-2",
-      name: "Antoine Lemaire",
-      location: "Marseille (13)",
-      age: 51,
-      rating: 5,
-      headline: "« De l'énergie retrouvée pour mes journées de travail »",
-      quote: "J'avais peur de tomber sur un livre de graines fades et compliquées. Au contraire ! Le saumon rôti aux herbes et le velouté au curcuma sont devenus des classiques chez nous. Je ne me sens plus lourd en sortant de table.",
-      verified: true
-    },
-    {
-      id: "test-3",
-      name: "Julie Martin",
-      location: "Paris (75)",
-      age: 38,
-      rating: 5,
-      headline: "« Le bonus batch cooking m'a sauvée après le travail »",
-      quote: "Rentrer à 19h30 et savoir exactement quoi préparer en 15 minutes sans prise de tête, ça n'a pas de prix. Le livre est superbement mis en page, les explications sont limpides et claires. Bravo !",
-      verified: true
-    },
-    {
-      id: "test-4",
-      name: "Sophie Duval",
-      location: "Bordeaux (33)",
-      age: 49,
-      rating: 5,
-      headline: "« Gourmand, varié et zéro sensation de privation »",
-      quote: "J'ai essayé beaucoup de guides dits « santé » qui donnaient l'impression d'être malade. Ici c'est de la vraie bonne cuisine de tous les jours avec de l'huile d'olive, des épices savoureuses et des desserts délicieux.",
-      verified: true
-    },
-    {
-      id: "test-5",
-      name: "Maxime Tessier",
-      location: "Toulouse (31)",
-      age: 46,
-      rating: 5,
-      headline: "« Les douleurs articulaires du matin se sont nettement atténuées »",
-      quote: "En changeant simplement les huiles de cuisson et en intégrant les soupes et smoothies riches en antioxydants, je me réveille avec beaucoup plus de souplesse. Très belle découverte !",
-      verified: true
-    },
-    {
-      id: "test-6",
-      name: "Émilie Gérard",
-      location: "Nantes (44)",
-      age: 41,
-      rating: 5,
-      headline: "« Mes enfants adorent les crumbles et les bowls »",
-      quote: "C'est la première fois qu'un livre culinaire sain fait l'unanimité pour toute la famille. Le format PDF sur iPad dans la cuisine avec les temps de préparation est extrêmement pratique.",
-      verified: true
-    }
-  ],
+  offer: {
+    title: "Tout ce que vous recevez aujourd'hui",
+    included: [
+      "Le guide « Bien dans l'Assiette » (250 recettes, PDF)",
+      "Bonus 1 : 28 jours de menus clé-en-main avec listes de courses par rayon",
+      "Bonus 2 : Guide du batch cooking express",
+      "Bonus 3 : Guide du placard sain + 60 substitutions",
+      "Bonus 4 : 30 sauces, vinaigrettes & dips",
+      "Accès immédiat par e-mail sur téléphone, tablette et ordinateur"
+    ],
+    price: "14,90",
+    priceSubline: "Paiement unique · moins de 6 centimes par recette",
+    cta: "ACCÉDER AU GUIDE MAINTENANT",
+    trustLine: "Paiement sécurisé · Garantie 15 jours · Accès immédiat"
+  },
 
   guarantee: {
-    durationDays: 15,
-    title: "Garantie Inconditionnelle 100 % « Satisfait ou Remboursé » de 15 Jours",
-    text: "Nous avons conçu ce recueil pour qu'il devienne votre compagnon de cuisine le plus précieux. Prenez le temps de feuilleter le guide, de tester les petits-déjeuners, les dîners et les bonus offerts. Si pour une raison quelconque vous n'êtes pas entièrement comblé(e) par la simplicité et les saveurs des recettes, envoyez-nous simplement un e-mail dans les 15 jours suivant votre achat. Vous serez intégralement remboursé(e), sans aucune question ni démarche fastidieuse.",
-    secureBadge: "Engagement sans risque · Remboursement en 24h à 48h"
+    title: "Garantie 15 jours satisfait ou remboursé",
+    text: "Prenez le temps d'explorer le guide et de tester les recettes chez vous pendant 15 jours. Si le recueil ne répond pas à vos attentes, écrivez-nous simplement à supportbiedanslassiete@gmail.com pour être remboursé intégralement. Vous ne prenez aucun risque."
   },
 
   faq: [
     {
       id: "faq-1",
       question: "Comment vais-je recevoir mon guide après le règlement ?",
-      answer: "L'accès est immédiat et 100 % automatique. Dès votre commande validée, vous recevez un e-mail contenant votre lien d'accès sécurisé pour consulter ou télécharger instantanément le livre principal ainsi que vos 4 bonus au format numérique (PDF haute définition adapté à tous les écrans)."
+      answer: "L'accès est immédiat et automatique. Dès votre commande validée, vous recevez un e-mail contenant votre lien d'accès pour télécharger le guide « Bien dans l'Assiette » et ses 4 compléments au format numérique PDF haute définition."
     },
     {
       id: "faq-2",
       question: "Puis-je consulter les recettes sur mon téléphone ou ma tablette ?",
-      answer: "Oui, absolument ! Le format numérique a été spécialement optimisé pour une lecture très confortable sur smartphone, tablette (iPad / Android), liseuse et ordinateur de bureau. Vous pouvez également imprimer vos fiches recettes préférées si vous aimez les avoir sur papier dans votre cuisine."
+      answer: "Oui, le format PDF est optimisé pour une lecture claire et fluide sur smartphone, tablette (iPad et Android), liseuse et ordinateur. Vous pouvez aussi imprimer les fiches recettes si vous préférez un support papier."
     },
     {
       id: "faq-3",
       question: "Les ingrédients sont-ils faciles à trouver dans un supermarché français ?",
-      answer: "C'est l'un des piliers de ce recueil : 100 % des ingrédients se trouvent couramment dans n'importe quel supermarché (Carrefour, Auchan, Leclerc, Monoprix...), magasin bio ou sur vos marchés locaux. Pas besoin d'ingrédients introuvables ou excessivement chers."
+      answer: "Oui, 100 % des ingrédients utilisés se trouvent facilement dans vos commerces habituels (supermarchés, marchés locaux, primeurs). Aucune dépense superflue ni ingrédient introuvable."
     },
     {
       id: "faq-4",
-      question: "Ce programme convient-il aux débutants en cuisine ?",
-      answer: "Totalement. Toutes les recettes sont expliquées étape par étape, avec des indications claires de temps de préparation (la majorité en 15 à 25 minutes) et des astuces simples pour réussir chaque plat à tous les coups, même si vous n'avez pas l'habitude de cuisiner."
+      question: "Ce recueil convient-il aux débutants en cuisine ?",
+      answer: "Tout à fait. Les recettes sont pensées avec des explications claires étape par étape, des temps de préparation courts (la plupart en moins de 25 minutes) et des gestes simples accessibles à tous."
     },
     {
       id: "faq-5",
       question: "Le paiement est-il sécurisé et s'agit-il d'un paiement unique ?",
-      answer: "Oui, le règlement se fait via une passerelle de paiement sécurisée aux normes bancaires les plus strictes (chiffrement SSL 256 bits). Il s'agit d'un achat unique de 14,90 € : aucun abonnement récurrent, aucun prélèvement surprise futur."
+      answer: "Oui, la transaction s'effectue via une plateforme bancaire sécurisée avec chiffrement SSL. Il s'agit d'un paiement unique de 14,90 €, sans aucun abonnement ni frais cachés."
     },
     {
       id: "faq-6",
       question: "Combien de temps ai-je accès au contenu ?",
-      answer: "Votre accès est illimité et à vie. Une fois téléchargé, vous gardez vos fichiers sans limite de temps. Vous bénéficiez en plus de toutes les futures mises à jour du recueil gratuitement."
+      answer: "Votre accès est illimité. Une fois les fichiers téléchargés, vous les conservez sur vos appareils sans limite de durée."
     },
     {
       id: "faq-7",
       question: "Les recettes conviennent-elles à toute la famille ?",
-      answer: "Absolument. Ce ne sont pas des plats « médicaux » ou austères, mais de délicieux plats traditionnels réinventés : gratins savoureux, crumbles dorés, viandes fondantes, poissons aux aromates et bowls colorés qui plaisent aussi bien aux adultes qu'aux enfants."
+      answer: "Oui, ce sont des recettes du quotidien faites avec des ingrédients simples et des préparations conviviales qui s'adaptent naturellement aux repas de toute la maison."
     },
     {
       id: "faq-8",
       question: "Comment fonctionne la garantie de 15 jours ?",
-      answer: "C'est très simple : vous disposez de 15 jours complets pour explorer le livre. Si vous n'êtes pas entièrement satisfait(e), écrivez-nous simplement à l'adresse support indiquée et nous vous remboursons intégralement la totalité du montant versé."
+      answer: "Si le guide ne vous convient pas, envoyez simplement un message à supportbiedanslassiete@gmail.com dans les 15 jours suivant votre achat pour obtenir un remboursement complet."
+    },
+    {
+      id: "faq-9",
+      question: "Est-ce un régime ou un traitement médical ?",
+      answer: "Non. C'est un recueil de recettes du quotidien. Il ne remplace pas l'avis d'un professionnel de santé."
     }
-  ]
+  ],
+
+  finalCta: {
+    title: "Ce soir, vous saurez quoi cuisiner.",
+    cta: "JE VEUX MES 250 RECETTES · 14,90 €"
+  },
+
+  // Laisser vide. La section de témoignages ne s'affiche que si ce tableau contient des avis réels
+  testimonials: []
 };
