@@ -12,6 +12,16 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ checkoutUrl, onOffer
     trackInitiateCheckout(14.90, 'EUR');
   };
 
+  // 6 short lines with checkmarks
+  const includedItems = [
+    'Guide numérique complet (250 recettes)',
+    '28 jours de menus équilibrés',
+    'Listes de courses par rayon',
+    'Fiches ingrédients pratiques',
+    'Guide d’organisation en cuisine',
+    'Accès immédiat PDF tous appareils',
+  ];
+
   return (
     <section
       id="offre"
@@ -20,14 +30,27 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ checkoutUrl, onOffer
     >
       <div className="max-w-xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[#FAFDF6] font-serif-display leading-tight mb-6 text-center text-balance">
-          {SALES_CONFIG.offer.title}
+          Tout ce que vous recevez aujourd'hui
         </h2>
 
         {/* Card da Oferta */}
         <div className="bg-[#FAFBF8] text-slate-900 rounded-2xl p-5 sm:p-7 border-2 border-[#3D5532] shadow-xl">
-          {/* Lista com ✓ */}
-          <ul className="space-y-3 mb-6 pb-6 border-b border-slate-200 text-sm text-slate-800">
-            {SALES_CONFIG.offer.included.map((item, idx) => (
+          {/* Top bundle image showing the guide and bonuses together */}
+          <div className="relative rounded-xl overflow-hidden mb-6 bg-[#E8EDE2] border border-[#DCE4D4] shadow-xs aspect-4/3">
+            <img
+              src="/src/assets/images/bundle_all_1791511976594.webp"
+              alt="Guide Bien dans l'Assiette et ses 4 compléments numériques"
+              width={720}
+              height={540}
+              loading="lazy"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* 6 short lines with ✓ */}
+          <ul className="space-y-2.5 mb-6 pb-6 border-b border-slate-200 text-sm text-slate-800">
+            {includedItems.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#E5F0D9] text-[#2D4225] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                   ✓

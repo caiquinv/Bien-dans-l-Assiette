@@ -1,7 +1,7 @@
 import React from 'react';
 import { SALES_CONFIG } from '../config/salesConfig';
 import { trackInitiateCheckout } from '../utils/tracking';
-import coverImg from '../assets/images/cover_bien_dans_assiette_1791510158174.jpg';
+import coverImg from '../assets/images/cover_bien_dans_assiette_1791510158174.webp';
 
 interface HeroSectionProps {
   checkoutUrl: string;
