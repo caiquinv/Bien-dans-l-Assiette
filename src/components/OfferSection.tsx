@@ -25,7 +25,6 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ checkoutUrl, onOffer
 
   return (
     <section
-      id="offre"
       ref={onOfferRef}
       className="bg-[#1F2E1A] text-white py-12 sm:py-16 px-4 border-b border-[#2C3F26]"
     >
@@ -61,34 +60,38 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ checkoutUrl, onOffer
             ))}
           </ul>
 
-          {/* Price display: 14,90 € unique */}
-          <div className="text-center mb-6">
-            <div className="flex items-baseline justify-center gap-1">
-              <span className="text-4xl sm:text-5xl font-black text-[#1F2E1A] font-serif-display">
-                14,90
-              </span>
-              <span className="text-2xl sm:text-3xl font-black text-[#1F2E1A]">
-                €
-              </span>
+          {/* EXACT PART FROM USER SCREENSHOT: Price + Checkout CTA button */}
+          <div id="offre" className="scroll-mt-16 pt-2 text-center">
+            {/* Price display: 14,90 € */}
+            <div className="mb-4">
+              <div className="flex items-baseline justify-center gap-1">
+                <span className="text-4xl sm:text-5xl font-black text-[#1F2E1A] font-serif-display">
+                  14,90
+                </span>
+                <span className="text-2xl sm:text-3xl font-black text-[#1F2E1A]">
+                  €
+                </span>
+              </div>
+              <p className="text-sm text-slate-600 mt-1 font-medium">
+                Paiement unique · Téléchargement immédiat en PDF
+              </p>
             </div>
-            <p className="text-sm text-slate-600 mt-1 font-medium">
-              Paiement unique · Aucun abonnement
+
+            {/* The ONLY checkout button that goes to Hotmart */}
+            <a
+              href={checkoutUrl}
+              onClick={handleCtaClick}
+              className="w-full min-h-[52px] px-6 py-4 bg-gradient-to-r from-[#A0D85E] to-[#82C341] hover:from-[#92CB50] hover:to-[#74B533] text-[#13220E] font-black text-base sm:text-lg rounded-xl shadow-lg border-b-4 border-[#5E9727] flex items-center justify-center text-center transition-transform active:scale-[0.99] tracking-wide"
+            >
+              {SALES_CONFIG.offer.cta}
+            </a>
+
+            {/* Security and reassurance subline */}
+            <p className="text-xs sm:text-sm text-slate-600 text-center mt-3 font-medium flex items-center justify-center gap-1.5">
+              <span>🔒</span>
+              <span>Paiement 100% sécurisé · Garantie 15 jours satisfait ou remboursé</span>
             </p>
           </div>
-
-          {/* Checkout button */}
-          <a
-            href={checkoutUrl}
-            onClick={handleCtaClick}
-            className="w-full min-h-[52px] px-6 py-4 bg-gradient-to-r from-[#A0D85E] to-[#82C341] hover:from-[#92CB50] hover:to-[#74B533] text-[#13220E] font-black text-base sm:text-lg rounded-xl shadow-lg border-b-4 border-[#5E9727] flex items-center justify-center text-center transition-transform active:scale-[0.99] tracking-wide"
-          >
-            {SALES_CONFIG.offer.cta}
-          </a>
-
-          {/* Reassurance text */}
-          <p className="text-sm text-slate-600 text-center mt-3 font-medium">
-            Téléchargement immédiat · Format PDF universel
-          </p>
         </div>
       </div>
     </section>

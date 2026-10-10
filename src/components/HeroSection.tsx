@@ -1,16 +1,21 @@
 import React from 'react';
 import { SALES_CONFIG } from '../config/salesConfig';
-import { trackInitiateCheckout } from '../utils/tracking';
 import coverImg from '../assets/images/cover_bien_dans_assiette_1791510158174.webp';
 
 interface HeroSectionProps {
-  checkoutUrl: string;
+  checkoutUrl?: string;
   onHeroCtaRef?: (el: HTMLElement | null) => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ checkoutUrl, onHeroCtaRef }) => {
-  const handleCtaClick = () => {
-    trackInitiateCheckout(14.90, 'EUR');
+export const HeroSection: React.FC<HeroSectionProps> = ({ onHeroCtaRef }) => {
+  const handleScrollToOffer = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const offerEl = document.getElementById('offre');
+    if (offerEl) {
+      offerEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      window.location.hash = '#offre';
+    }
   };
 
   return (
@@ -55,8 +60,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ checkoutUrl, onHeroCta
         {/* 5. Botão de compra (min-h-[52px], full width no celular) */}
         <div ref={onHeroCtaRef} className="w-full max-w-md">
           <a
-            href={checkoutUrl}
-            onClick={handleCtaClick}
+            href="#offre"
+            onClick={handleScrollToOffer}
             className="w-full min-h-[52px] px-4 py-3.5 bg-gradient-to-r from-[#A0D85E] to-[#82C341] hover:from-[#B1E572] hover:to-[#91D24E] text-[#13220E] font-black text-base sm:text-lg rounded-xl shadow-lg border-b-4 border-[#5E9727] flex items-center justify-center text-center transition-transform active:scale-[0.99]"
           >
             {SALES_CONFIG.hero.cta}
